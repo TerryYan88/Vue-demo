@@ -1,0 +1,52 @@
+$xs: 600px;
+
+@mixin loading() {
+    width: 2.6666666666666665rem;
+    height: 2.6666666666666665rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 0.8rem;
+    z-index: 999;
+}
+@mixin log($left) {
+    width: 1.6rem;
+    height: 1.6rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: $left;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    border: 0.12rem solid #fff;
+    border-right: transparent 0.12rem solid;
+    animation: cycle 0.5s linear infinite;
+}
+
+@keyframes cycle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.loading {
+    @include loading();
+    .log {
+        @include log(0);
+    }
+}
+
+@media screen and (max-width: $xs) {
+    .loading {
+        @include loading();
+        .log {
+            @include log(.6666666666666666rem);
+        }
+    }
+}

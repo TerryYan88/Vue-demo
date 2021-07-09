@@ -1,0 +1,108 @@
+//define screen width size;
+$xl: 1920px;
+$lg: 1280px;
+$sm: 800px;
+
+//customized pagination
+@mixin pagination($fontSize) {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: $fontSize;
+    text-align: center;
+}
+@mixin ul() {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+@mixin li($width, $height, $lineHeight) {
+    width: $width;
+    height: $height;
+    border: 1px solid black;
+    background-color: white;
+    line-height: $lineHeight;
+    font-weight: 600;
+}
+/*screen > 1920px start*/
+#pagination {
+    @include pagination(0.4266666666666667rem);
+    ul {
+        @include ul();
+        li {
+            @include li(1rem, 1rem, 1rem);
+        }
+        .standLi {
+            background-color: #1e2125;
+            border: 1px solid;
+        }
+        .active {
+            color: orange;
+        }
+    }
+}
+/*screen > 1920px end*/
+/*screen <= 1920px start*/
+@media screen and (max-width: $xl) {
+    #pagination {
+        @include pagination(0.3266666666666667rem);
+        ul {
+            @include ul();
+            li {
+                @include li(0.65rem, 0.65rem, 0.65rem);
+            }
+            .standLi {
+                background-color: #1e2125;
+                border: 1px solid;
+            }
+            .active {
+                color: orange;
+            }
+        }
+    }
+}
+/*screen <= 1920px end*/
+
+/*screen <= 1280px start*/
+@media screen and (max-width: $lg) {
+    #pagination {
+        @include pagination(0.2266666666666667rem);
+        ul {
+            @include ul();
+            li {
+                @include li(0.48rem, 0.48rem, 0.48rem);
+            }
+            .standLi {
+                background-color: #1e2125;
+                border: 1px solid;
+            }
+            .active {
+                color: orange;
+            }
+        }
+    }
+}
+/*screen <= 1280px end*/
+/*screen <= 760px start*/
+@media screen and (max-width: $sm) {
+    #pagination {
+        @include pagination(0.2266666666666667rem);
+        ul {
+            width:300px;
+            height:120px;
+            li {
+                @include li(0.6rem, 0.6rem, 0.6rem);
+            }
+            .standLi {
+                background-color: #1e2125;
+                border: 1px solid;
+            }
+            .active {
+                color: orange;
+            }
+        }
+    }
+}
+/*screen <= 760px start*/

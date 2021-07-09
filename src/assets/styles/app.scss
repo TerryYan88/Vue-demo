@@ -1,0 +1,42 @@
+//define screen width size;
+$lg: 1280px;
+$md: 960px;
+$sm: 600px;
+
+//customized functions
+@mixin root($width, $bcColor) {
+  width: $width;
+  background-color: $bcColor;
+  margin: auto;
+}
+
+/*screen > 1280px start*/
+#root {
+  @include root(100%, #212429);
+}
+/*screen > 1280px end*/
+
+/*screen <= 1280px start*/
+@media screen and (max-width: $lg) {
+  #root {
+    @include root(100%, #333);
+  }
+}
+/*screen <= 1280px end*/
+
+/*screen <= 960px start*/
+@media screen and (max-width: $md) {
+  #root {
+    @include root(100%, #333);
+  }
+}
+/*screen <= 960px end*/
+
+/*screen <= 600px start*/
+@media screen and (max-width: $sm) {
+  #root {
+    @include root(100%, #333);
+  }
+}
+/*screen <= 600px end*/
+

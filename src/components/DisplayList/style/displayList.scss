@@ -1,0 +1,164 @@
+//define screen width size;
+$xl: 1920px;
+$lg: 1280px;
+$sm: 760px;
+@mixin container($width, $margin, $paddingTop, $paddingBottom) {
+    width: $width;
+    margin: $margin;
+    padding-top: $paddingTop;
+    padding-bottom: $paddingBottom;
+}
+@mixin flexLayout($flex, $wrap, $justify, $algin) {
+    display: $flex;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $algin;
+}
+@mixin liTag($width, $bgColor, $mTop, $cursor, $border) {
+    width: $width;
+    background-color: $bgColor;
+    margin-top: $mTop;
+    cursor: $cursor;
+    border-radius: $border;
+}
+@mixin img($mWidth, $height, $borderTop, $borderBottom) {
+    max-width: $mWidth;
+    height: $height;
+    border-top-left-radius: $borderTop;
+    border-bottom-left-radius: $borderBottom;
+}
+@mixin details($fontSize) {
+    color: #fff;
+    padding: 0.26666666666666666rem 0;
+    font-weight: 600;
+    p {
+        margin-bottom: 0.26666666666666666rem;
+        font-size: $fontSize;
+    }
+    .name {
+        &:hover {
+            color: #f29c38;
+        }
+    }
+    .gender {
+        &:hover {
+            color: #f29c38;
+        }
+    }
+    .colorGreen {
+        color: greenyellow;
+    }
+    .colorRed {
+        color: red;
+    }
+    .colorGrey {
+        color: #9e9e9e;
+    }
+}
+
+
+/*screen > 1920px start*/
+#display-list {
+    position: relative;
+    .display-container {
+        @include container(85.5%, auto, 0.8rem, 2.6666666666666665rem);
+        ul {
+            @include flexLayout(flex, wrap, space-around, center);
+            li {
+                @include liTag(32%, #364563, 0.5333333333333333rem, pointer, 0.5333333333333333rem);
+                .img-container {
+                    float: left;
+                    img {
+                        @include img(95%, 100%, 0.5333333333333333rem, 0.5333333333333333rem);
+                    }
+                }
+                .details {
+                    @include details(40%);
+                }
+            }
+        }
+    }
+}
+/*screen > 1920px end*/
+/*screen <= 1920px start*/
+@media screen and (max-width: $xl) {
+    #display-list {
+        .display-container {
+            @include container(85.5%, auto, 0.8rem, 2.6666666666666665rem);
+            ul {
+                @include flexLayout(flex, wrap, space-around, center);
+                li {
+                    @include liTag(48%, #364563, 0.5333333333333333rem, pointer, 0.5333333333333333rem);
+                    .img-container {
+                        float: left;
+                        img {
+                            @include img(95%, 100%, 0.5333333333333333rem, 0.5333333333333333rem);
+                        }
+                    }
+                    .details {
+                        @include details(50%);
+                        @media screen and (min-width: $lg) {
+                            @include details(35%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*screen <= 1920px end*/
+
+/*screen <= 1280px start*/
+@media screen and (max-width: $lg) {
+    #display-list {
+        .display-container {
+            @include container(80%, auto, 0.8rem, 2.6666666666666665rem);
+            ul {
+                @include flexLayout(flex, wrap, space-around, center);
+                li {
+                    @include liTag(90%, #364563, 0.5333333333333333rem, pointer, 0.5333333333333333rem);
+                    .img-container {
+                        float: left;
+                        img {
+                            @include img(100%, 100%, 0.5333333333333333rem, 0.5333333333333333rem);
+                            border-top-right-radius: 0.5333333333333333rem;
+                            border-bottom-right-radius: 0.5333333333333333rem;
+                        }
+                    }
+                    .details {
+                        text-align: center;
+                        @include details(40%);
+                    }
+                }
+            }
+        }
+    }
+}
+/*screen <= 1280px end*/
+/*screen <= 760px start*/
+@media screen and (max-width: $sm) {
+    #display-list {
+        .display-container {
+            @include container(80%, auto, 0.8rem, 2.6666666666666665rem);
+            ul {
+                @include flexLayout(flex, wrap, space-around, center);
+                li {
+                    @include liTag(100%, #364563, 0.5333333333333333rem, pointer, 0.5333333333333333rem);
+                    text-align: center;
+                    .img-container {
+                        img {
+                            @include img(100%, 100%, 0.5333333333333333rem, 0.5333333333333333rem);
+                            border-top-right-radius: 0.5333333333333333rem;
+                            border-bottom-right-radius: 0.5333333333333333rem;
+                        }
+                    }
+                    .details {
+                        margin-top: 0.26666666666666666rem;
+                        @include details(30%);
+                    }
+                }
+            }
+        }
+    }
+}
+/*screen <= 760px start*/

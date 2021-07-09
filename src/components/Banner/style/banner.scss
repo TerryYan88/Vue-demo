@@ -1,0 +1,87 @@
+//define screen width size;
+$lg: 1280px;
+$md: 960px;
+$sm: 600px;
+//customied functions
+@mixin banner($width,$margin, $size) {
+  width: $width;
+  margin: $margin;
+  text-align: center;
+  position: relative;
+}
+@mixin bannar-bg($mTop, $align) {
+  margin-top: $mTop;
+  text-align: $align;
+  padding: 1.0666666666666667rem;
+  position: absolute;
+  bottom: 0;
+  left:50%;
+  transform:translateX(-50%);
+}
+@mixin img(){
+  max-width:100%;
+  max-height:100%;
+}
+/*screen > 1280px start*/
+.banner {
+  @include banner(100%,auto, 100%);
+  img{
+    @include img();
+  }
+  .bannar-bg {
+    img {
+      @include img();
+    }
+    @include bannar-bg(.6666666666666666rem, center);
+  }
+}
+/*screen > 1280px end*/
+/*screen <= 1280px start*/
+@media screen and (max-width: $lg) {
+  .banner {
+    @include banner(100%, auto, 100%);
+    img{
+      @include img();
+    }
+    .bannar-bg {
+      img {
+        @include img();
+      }
+      @include bannar-bg(.6666666666666666rem, center);
+    }
+  }
+}
+/*screen <= 1280px end*/
+/*screen <= 960px start*/
+@media screen and (max-width: $md) {
+  .banner {
+    @include banner(100%,auto, 100%);
+    img{
+      @include img();
+    }
+    .bannar-bg {
+      img {
+        @include img();
+      }
+      @include bannar-bg(.6666666666666666rem, center);
+    }
+  }
+}
+/*screen <= 960px end*/
+
+/*screen <= 600px start*/
+@media screen and (max-width: $sm) {
+  .banner {
+    @include banner(100%,auto, 100%);
+    img{
+      @include img();
+    }
+    .bannar-bg {
+      img {
+        @include img();
+      }
+      @include bannar-bg(.6666666666666666rem, center);
+    }
+  }
+}
+/*screen <= 600px end*/
